@@ -91,7 +91,29 @@ for (let index = 0; index < botones.length; index++) {
         elementosCocina [index].cantidad +=1
         flechas [index].innerText = elementosCocina [index].cantidad
     })
-}
+  }
+  const restar = document.querySelectorAll('.fa-arrow-left')
+  for (let i = 0; i < restar.length; i++) {
+    const resta = restar[i]
+    resta.addEventListener('click', ()=>{
+      const precio = elementosCocina [i].precio
+      // console.log(restar)
+      if (products.length > 0) {
+          products.pop();
+          cantidaddeproductos.innerText = products.length
+          suma = suma - precio 
+          subtotal.innerText = suma
+          totalpagar.innerText = suma - ahorro
+          elementosCocina[i].cantidad -=1
+          flechas[i].innerText = elementosCocina [i].cantidad
+      } 
+      else{
+        alert('la cantidad de productos no puede ser menor a cero')
+      }
+  
+    })
+  
+  }
 
 // ------------ Puntos a realizar --------------------
 
